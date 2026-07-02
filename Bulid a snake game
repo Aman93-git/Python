@@ -1,0 +1,54 @@
+This is my first project in python.
+
+
+import random # "random" is a module which you don't have to download its a bulit in program in python.
+
+
+def game_win(user, computer):
+    if user == computer:
+        return None 
+
+    # Snake vs Water
+    if user == "s" and computer == "w":
+        return True
+    if user == "w" and computer == "s":
+        return False
+    
+    # Water vs Gun
+    if user == "w" and computer == "g":
+        return True
+    if user == "g" and computer == "w":
+        return False
+    
+    # Gun vs Snake
+    if user == "g" and computer == "s":
+        return True
+    if user == "s" and computer == "g":
+        return False
+
+rand_no = random.randint(1, 3) #They choose two number between (1,3) and give one.
+
+#This is the code for computer.
+print("Computer's turn: Snake(s), Water (w), Gun (g)")
+if rand_no == 1: #If random no is 1 then they play as a snake (s).
+    computer = "s"
+elif rand_no == 2: #If random no is 2 then they play as a water (w).
+    computer = "w"
+else: # They play as a gun (g).
+    computer = "g"
+
+# This is code for the user.
+
+user = input("Your turn: Snake(s), Water (w), Gun (g): ").lower() #(lower) function is used for all text in lower case.
+
+result = game_win(user, computer) # Returns True if you win, False for lose, None for draw
+print(f"\nYou chose: {user}")
+print(f"\nComputer chose: {computer}")
+
+if result is None: #If you want to show (None) then you have to use with it (is none)
+    print("Its a draw!")
+
+elif(result):
+    print("You win!")
+else:
+    print("You lose!")
